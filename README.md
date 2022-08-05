@@ -2,6 +2,18 @@
 
 Custom web browser with Microsoft WebView2 Edge engine 
 
-( Visual Studio 2022 project )
+## Development
 
-Please install the WebView2 runtime (It's necessary)  it's the URL : https://developer.microsoft.com/en-us/microsoft-edge/webview2/
+Your compiler must support C++17 and we recommend to pair it with an up-to-date Windows 10 SDK.
+
+For Visual C++ we recommend Visual Studio 2022 or later.
+
+Developers and end-users must have the [WebView2 runtime][ms-webview2-rt] installed on their system for any version of Windows before Windows 11.
+
+(  https://developer.microsoft.com/en-us/microsoft-edge/webview2/ )
+
+![Custom Web Browser ](https://github.com/Vladimir-Novick/WebBrowser/blob/main/img/webbrowser.png?raw=true)
+
+## License
+
+Code is distributed under MIT license, feel free to use it in your proprietary projects as well.
