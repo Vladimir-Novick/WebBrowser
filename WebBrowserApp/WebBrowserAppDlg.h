@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "ComponentBase.h"
+#include "CHtmlComponentBase.h"
 //#include "WebBrowserApp.h"
 #include <dcomp.h>
 #include <functional>
@@ -73,7 +73,7 @@ protected:
 	wil::com_ptr<ICoreWebView2Controller> m_controller;
 	wil::com_ptr<ICoreWebView2> m_webView;
 	wil::com_ptr<IDCompositionDevice> m_dcompDevice;
-	std::vector<std::unique_ptr<ComponentBase>> m_components;
+	std::vector<std::unique_ptr<CHtmlComponentBase>> m_components;
 	HWND m_mainWindow = nullptr;
 	HINSTANCE g_hInstance;
 	static constexpr size_t s_maxLoadString = 100;

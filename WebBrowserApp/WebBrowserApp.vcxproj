@@ -275,20 +275,20 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ComponentBase.h" />
+    <ClInclude Include="CHtmlComponentBase.h" />
     <ClInclude Include="WebBrowserApp.h" />
     <ClInclude Include="WebBrowserAppDlg.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="ViewComponent.h" />
+    <ClInclude Include="CHtmlViewComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WebBrowserApp.cpp" />
     <ClCompile Include="WebBrowserAppDlg.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="ViewComponent.cpp" />
+    <ClCompile Include="CHtmlViewComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WebBrowserApp.rc" />

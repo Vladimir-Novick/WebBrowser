@@ -6,7 +6,7 @@
 
 #include "stdafx.h"
 
-class ComponentBase
+class CHtmlComponentBase
 {
 public:
     // *result defaults to 0
@@ -19,5 +19,5 @@ public:
     {
         return false;
     }
-    virtual ~ComponentBase() { }
+    virtual ~CHtmlComponentBase() { }
 };

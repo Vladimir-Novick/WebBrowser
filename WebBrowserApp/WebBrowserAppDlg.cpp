@@ -7,7 +7,7 @@
 #include "WebBrowserApp.h"
 #include "WebBrowserAppDlg.h"
 #include "winuser.h"
-#include "ViewComponent.h"
+#include "CHtmlViewComponent.h"
 #include <ShObjIdl_core.h>
 #include <Shellapi.h>
 #include <ShlObj_core.h>
@@ -158,7 +158,7 @@ void CWebBrowserAppDlg::ResizeEverything()
     GetClientRect(&availableBounds);
     // ClientToScreen(&availableBounds);
 
-    if (auto view = GetComponent<ViewComponent>())
+    if (auto view = GetComponent<CHtmlViewComponent>())
     {
         view->SetBounds(availableBounds);
     }
@@ -175,17 +175,6 @@ void CWebBrowserAppDlg::InitializeWebView()
 
     CloseWebView();
     m_dcompDevice = nullptr;
-
-
-    //HRESULT hr2 = DCompositionCreateDevice2(nullptr, IID_PPV_ARGS(&m_dcompDevice));
-    //if (!SUCCEEDED(hr2))
-    //{
-    //    AfxMessageBox(L"Attempting to create WebView using DComp Visual is not supported.\r\n"
-    //        "DComp device creation failed.\r\n"
-    //        "Current OS may not support DComp.\r\n"
-    //        "Create with Windowless DComp Visual Failed", MB_OK);
-    //    return;
-    //}
 
 
 #ifdef USE_WEBVIEW2_WIN10
@@ -264,7 +253,7 @@ HRESULT CWebBrowserAppDlg::OnCreateCoreWebView2ControllerCompleted(HRESULT resul
         m_controller->get_CoreWebView2(&coreWebView2);
         coreWebView2.query_to(&m_webView);
 
-        NewComponent<ViewComponent>(
+        NewComponent<CHtmlViewComponent>(
             this, m_dcompDevice.get(),
 #ifdef USE_WEBVIEW2_WIN10
             m_wincompCompositor,

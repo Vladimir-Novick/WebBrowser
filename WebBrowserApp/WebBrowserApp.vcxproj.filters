@@ -27,10 +27,10 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ViewComponent.h">
+    <ClInclude Include="CHtmlViewComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentBase.h">
+    <ClInclude Include="CHtmlComponentBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WebBrowserApp.h">
@@ -44,7 +44,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ViewComponent.cpp">
+    <ClCompile Include="CHtmlViewComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WebBrowserApp.cpp">

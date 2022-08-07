@@ -1,6 +1,3 @@
-// Copyright (C) Microsoft Corporation. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
 #pragma once
 
@@ -8,25 +5,21 @@
 //#include "DCompTargetImpl.h"
 //#include "Browser.h"
 #include "WebBrowserAppDlg.h"
-//#include "ComponentBase.h"
+#include "CHtmlComponentBase.h"
 #include <dcomp.h>
 #include <unordered_set>
 #ifdef USE_WEBVIEW2_WIN10
 #include <winrt/Windows.UI.Composition.Desktop.h>
 #endif
 
-// This component handles commands from the View menu, as well as the ZoomFactorChanged
-// event, and any functionality related to sizing and visibility of the WebView.
-// It also manages interaction with the compositor if running in windowless mode.
-
 class DCompTargetImpl;
 
-class ViewComponent : public ComponentBase
+class CHtmlViewComponent : public CHtmlComponentBase
 {
     friend class DCompTargetImpl;
 
 public:
-    ViewComponent(
+    CHtmlViewComponent(
         CWebBrowserAppDlg* appWindow,
         IDCompositionDevice* dcompDevice,
 #ifdef USE_WEBVIEW2_WIN10
@@ -44,7 +37,7 @@ public:
 
     void SetBounds(RECT bounds);
 
-    ~ViewComponent() override;
+    ~CHtmlViewComponent() override;
 
 private:
     enum class TransformType
@@ -104,9 +97,6 @@ private:
     winrt::Windows::UI::Composition::ContainerVisual m_wincompWebViewVisual{ nullptr };
 #endif
 
-    // This member is used to exercise the put_RootVisualTarget API with an IDCompositionTarget.
-    // Distinct/unrelated to the dcompHwndTarget
-   // wil::com_ptr<DCompTargetImpl> m_dcompTarget;
 
     EventRegistrationToken m_cursorChangedToken = {};
 };
