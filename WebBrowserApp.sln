@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WebBrowser", "WebBrowserApp\WebBrowserApp.vcxproj", "{E232DA96-6264-4049-888D-C88C9963AC39}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MDI_Application", "MDI_HTML_Application\MDI_HTML_Application.vcxproj", "{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -27,6 +29,18 @@ Global
 		{E232DA96-6264-4049-888D-C88C9963AC39}.Release|x64.Build.0 = Release|x64
 		{E232DA96-6264-4049-888D-C88C9963AC39}.Release|x86.ActiveCfg = Release|Win32
 		{E232DA96-6264-4049-888D-C88C9963AC39}.Release|x86.Build.0 = Release|Win32
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Debug|ARM.ActiveCfg = Debug|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Debug|ARM.Build.0 = Debug|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Debug|x64.ActiveCfg = Debug|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Debug|x64.Build.0 = Debug|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Debug|x86.ActiveCfg = Debug|Win32
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Debug|x86.Build.0 = Debug|Win32
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Release|ARM.ActiveCfg = Release|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Release|ARM.Build.0 = Release|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Release|x64.ActiveCfg = Release|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Release|x64.Build.0 = Release|x64
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Release|x86.ActiveCfg = Release|Win32
+		{29DAF50D-6AE8-42E9-AC0D-669A1A8593BC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

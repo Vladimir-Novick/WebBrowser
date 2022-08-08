@@ -5,11 +5,11 @@
 #pragma once
 
 //#ifndef __AFXWIN_H__
-//	#error "include 'pch.h' before including this file for PCH"
+//	#error "include 'stdafx.h' before including this file for PCH"
 //#endif
 //#include "stdafx.h"
 #include "resource.h"		// main symbols
-//#include "pch.h"
+//#include "stdafx.h"
 
 #ifdef __windows__
 #undef __windows__
