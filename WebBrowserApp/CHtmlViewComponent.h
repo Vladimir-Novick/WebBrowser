@@ -14,12 +14,12 @@
 
 class DCompTargetImpl;
 
-class CHtmlViewComponent : public CHtmlComponentBase
+class CHtmlFormViewComponent : public CHtmlComponentBase
 {
     friend class DCompTargetImpl;
 
 public:
-    CHtmlViewComponent(
+    CHtmlFormViewComponent(
         CWebBrowserAppDlg* appWindow,
         IDCompositionDevice* dcompDevice,
 #ifdef USE_WEBVIEW2_WIN10
@@ -37,7 +37,7 @@ public:
 
     void SetBounds(RECT bounds);
 
-    ~CHtmlViewComponent() override;
+    ~CHtmlFormViewComponent() override;
 
 private:
     enum class TransformType

@@ -187,6 +187,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="CHtmlComponentBase.h" />
+    <ClInclude Include="CHTMLFormView.h" />
+    <ClInclude Include="CHtmlFormViewComponent.h" />
     <ClInclude Include="ClassView.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="framework.h" />
@@ -203,6 +206,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="CHTMLFormView.cpp" />
+    <ClCompile Include="CHtmFormlViewComponent.cpp" />
     <ClCompile Include="ClassView.cpp" />
     <ClCompile Include="FileView.cpp" />
     <ClCompile Include="MainFrm.cpp" />

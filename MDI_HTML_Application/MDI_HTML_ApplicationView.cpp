@@ -20,12 +20,12 @@
 
 // CMDIHTMLApplicationView
 
-IMPLEMENT_DYNCREATE(CMDIHTMLApplicationView, CFormView)
+IMPLEMENT_DYNCREATE(CMDIHTMLApplicationView, CHTMLFormView)
 
-BEGIN_MESSAGE_MAP(CMDIHTMLApplicationView, CFormView)
+BEGIN_MESSAGE_MAP(CMDIHTMLApplicationView, CHTMLFormView)
 	// Standard printing commands
-	ON_COMMAND(ID_FILE_PRINT, &CFormView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CFormView::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT, &CHTMLFormView::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CHTMLFormView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CMDIHTMLApplicationView::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
@@ -34,7 +34,7 @@ END_MESSAGE_MAP()
 // CMDIHTMLApplicationView construction/destruction
 
 CMDIHTMLApplicationView::CMDIHTMLApplicationView() noexcept
-	: CFormView(IDD_WEBVIEW2BROWSERMFC_MDI_FORM)
+	: CHTMLFormView(IDD_WEBVIEW2BROWSERMFC_MDI_FORM)
 {
 	// TODO: add construction code here
 
@@ -49,7 +49,7 @@ BOOL CMDIHTMLApplicationView::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: Modify the Window class or styles here by modifying
 	//  the CREATESTRUCT cs
 
-	return CFormView::PreCreateWindow(cs);
+	return CHTMLFormView::PreCreateWindow(cs);
 }
 
 // CMDIHTMLApplicationView drawing
@@ -110,12 +110,12 @@ void CMDIHTMLApplicationView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 #ifdef _DEBUG
 void CMDIHTMLApplicationView::AssertValid() const
 {
-	CFormView::AssertValid();
+	CHTMLFormView::AssertValid();
 }
 
 void CMDIHTMLApplicationView::Dump(CDumpContext& dc) const
 {
-	CFormView::Dump(dc);
+	CHTMLFormView::Dump(dc);
 }
 
 CMDIHTMLApplicationDoc* CMDIHTMLApplicationView::GetDocument() const // non-debug version is inline
@@ -131,12 +131,12 @@ CMDIHTMLApplicationDoc* CMDIHTMLApplicationView::GetDocument() const // non-debu
 
 void CMDIHTMLApplicationView::OnInitialUpdate()
 {
-	CFormView::OnInitialUpdate();
+	CHTMLFormView::OnInitialUpdate();
 
 
 	try
 	{
-	//	Navigate2(L"https://www.bing.com/", 0, NULL);
+		Navigate2(L"https://www.bing.com/", 0, NULL);
 	}
 	catch (...)
 	{

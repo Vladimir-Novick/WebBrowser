@@ -4,9 +4,10 @@
 
 #pragma once
 
-#include <afxhtml.h>	// For CFormView
+#include <afxhtml.h>	// For CHTMLFormView
+#include "CHTMLFormView.h"
 
-class CMDIHTMLApplicationView : public CFormView
+class CMDIHTMLApplicationView : public CHTMLFormView
 {
 protected: // create from serialization only
 	CMDIHTMLApplicationView() noexcept;

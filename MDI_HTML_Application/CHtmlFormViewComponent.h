@@ -4,7 +4,7 @@
 #include "stdafx.h"
 //#include "DCompTargetImpl.h"
 //#include "Browser.h"
-#include "WebBrowserAppDlg.h"
+#include "CHTMLFormView.h"
 #include "CHtmlComponentBase.h"
 #include <dcomp.h>
 #include <unordered_set>
@@ -14,13 +14,13 @@
 
 class DCompTargetImpl;
 
-class CHtmlViewComponent : public CHtmlComponentBase
+class CHtmlFormViewComponent : public CHtmlComponentBase
 {
     friend class DCompTargetImpl;
 
 public:
-    CHtmlViewComponent(
-        CWebBrowserAppDlg* appWindow,
+    CHtmlFormViewComponent(
+        CHTMLFormView* appWindow,
         IDCompositionDevice* dcompDevice,
 #ifdef USE_WEBVIEW2_WIN10
         winrtComp::Compositor wincompCompositor,
@@ -37,7 +37,7 @@ public:
 
     void SetBounds(RECT bounds);
 
-    ~CHtmlViewComponent() override;
+    ~CHtmlFormViewComponent() override;
 
 private:
     enum class TransformType
@@ -57,7 +57,7 @@ private:
     void ShowWebViewZoom();
 
     //Browser* m_appWindow = nullptr;
-    CWebBrowserAppDlg* m_appWindow = nullptr;
+    CHTMLFormView* m_appWindow = nullptr;
     wil::com_ptr<ICoreWebView2Controller> m_controller;
     wil::com_ptr<ICoreWebView2> m_webView;
     bool m_isDcompTargetMode;

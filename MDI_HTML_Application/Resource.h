@@ -87,6 +87,7 @@
 #define ID_WEBVIEW2_NEW             307
 #define IDD_WEBVIEW2BROWSERMFC_MDI_FORM 308
 #define IDC_Label_View                  1000
+#define IDM_CREATION_MODE_TARGET_DCOMP  195
 
 // Next default values for new objects
 //
