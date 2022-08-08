@@ -1,6 +1,6 @@
 # WebBrowser
 
-Custom web browser with Microsoft WebView2 Edge engine 
+Custom web browser  with Microsoft WebView2 Edge engine 
 
 ## Development
 
@@ -12,7 +12,14 @@ Developers and end-users must have the [WebView2 runtime][ms-webview2-rt] instal
 
 (  https://developer.microsoft.com/en-us/microsoft-edge/webview2/ )
 
+## Dialog-Base Application
+
 ![Custom Web Browser ](https://github.com/Vladimir-Novick/WebBrowser/blob/main/img/webbrowser.png?raw=true)
+
+
+## MDI Desktop Application
+
+![Custom MDI WEB Browser ](https://github.com/Vladimir-Novick/WebBrowser/blob/main/img/mdi.png?raw=true)
 
 ## License
 
