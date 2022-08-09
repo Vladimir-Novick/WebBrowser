@@ -158,7 +158,7 @@ void CWebBrowserAppDlg::ResizeEverything()
     GetClientRect(&availableBounds);
     // ClientToScreen(&availableBounds);
 
-    if (auto view = GetComponent<CHtmlFormViewComponent>())
+    if (auto view = GetComponent<CHtmlViewComponent>())
     {
         view->SetBounds(availableBounds);
     }
@@ -253,7 +253,7 @@ HRESULT CWebBrowserAppDlg::OnCreateCoreWebView2ControllerCompleted(HRESULT resul
         m_controller->get_CoreWebView2(&coreWebView2);
         coreWebView2.query_to(&m_webView);
 
-        NewComponent<CHtmlFormViewComponent>(
+        NewComponent<CHtmlViewComponent>(
             this, m_dcompDevice.get(),
 #ifdef USE_WEBVIEW2_WIN10
             m_wincompCompositor,

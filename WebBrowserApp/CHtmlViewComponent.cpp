@@ -14,7 +14,7 @@
 //#include "CheckFailure.h"
 
 using namespace Microsoft::WRL;
-CHtmlFormViewComponent::CHtmlFormViewComponent(
+CHtmlViewComponent::CHtmlViewComponent(
     CWebBrowserAppDlg* appWindow,
     IDCompositionDevice* dcompDevice,
 #ifdef USE_WEBVIEW2_WIN10
@@ -44,7 +44,7 @@ CHtmlFormViewComponent::CHtmlFormViewComponent(
 
     ResizeWebView();
 }
-bool CHtmlFormViewComponent::HandleWindowMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, LRESULT* result)
+bool CHtmlViewComponent::HandleWindowMessage(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam, LRESULT* result)
 {
     //! [ToggleIsVisibleOnMinimize]
     if (message == WM_SYSCOMMAND)
@@ -80,7 +80,7 @@ bool CHtmlFormViewComponent::HandleWindowMessage(HWND hWnd, UINT message, WPARAM
     return false;
 }
 //! [ToggleIsVisible]
-void CHtmlFormViewComponent::ToggleVisibility()
+void CHtmlViewComponent::ToggleVisibility()
 {
     BOOL visible;
     m_controller->get_IsVisible(&visible);
@@ -89,26 +89,26 @@ void CHtmlFormViewComponent::ToggleVisibility()
 }
 //! [ToggleIsVisible]
 
-void CHtmlFormViewComponent::SetSizeRatio(float ratio)
+void CHtmlViewComponent::SetSizeRatio(float ratio)
 {
     m_webViewRatio = ratio;
     ResizeWebView();
 }
 
-void CHtmlFormViewComponent::SetZoomFactor(float zoom)
+void CHtmlViewComponent::SetZoomFactor(float zoom)
 {
     m_webViewZoomFactor = zoom;
     m_controller->put_ZoomFactor(zoom);
 }
 
-void CHtmlFormViewComponent::SetBounds(RECT bounds)
+void CHtmlViewComponent::SetBounds(RECT bounds)
 {
     m_webViewBounds = bounds;
     ResizeWebView();
 }
 
 //! [SetBoundsAndZoomFactor]
-void CHtmlFormViewComponent::SetScale(float scale)
+void CHtmlViewComponent::SetScale(float scale)
 {
     RECT bounds;
     m_controller->get_Bounds(&bounds);
@@ -126,7 +126,7 @@ void CHtmlFormViewComponent::SetScale(float scale)
 
 //! [ResizeWebView]
 // Update the bounds of the WebView window to fit available space.
-void CHtmlFormViewComponent::ResizeWebView()
+void CHtmlViewComponent::ResizeWebView()
 {
     SIZE webViewSize = {
             LONG((m_webViewBounds.right - m_webViewBounds.left) * m_webViewRatio * m_webViewScale),
@@ -143,7 +143,7 @@ void CHtmlFormViewComponent::ResizeWebView()
 //! [ResizeWebView]
 
 // Show the current bounds of the WebView.
-void CHtmlFormViewComponent::ShowWebViewBounds()
+void CHtmlViewComponent::ShowWebViewBounds()
 {
     RECT bounds;
     HRESULT result = m_controller->get_Bounds(&bounds);
@@ -159,7 +159,7 @@ void CHtmlFormViewComponent::ShowWebViewBounds()
 }
 
 // Show the current zoom factor of the WebView.
-void CHtmlFormViewComponent::ShowWebViewZoom()
+void CHtmlViewComponent::ShowWebViewZoom()
 {
     double zoomFactor;
     HRESULT result = m_controller->get_ZoomFactor(&zoomFactor);
@@ -171,12 +171,12 @@ void CHtmlFormViewComponent::ShowWebViewZoom()
     }
 }
 
-void CHtmlFormViewComponent::SetTransform(TransformType transformType)
+void CHtmlViewComponent::SetTransform(TransformType transformType)
 {
 }
 
 //! [SendMouseInput]
-bool CHtmlFormViewComponent::OnMouseMessage(UINT message, WPARAM wParam, LPARAM lParam)
+bool CHtmlViewComponent::OnMouseMessage(UINT message, WPARAM wParam, LPARAM lParam)
 {
     // Manually relay mouse messages to the WebView
 #ifdef USE_WEBVIEW2_WIN10
@@ -281,7 +281,7 @@ bool CHtmlFormViewComponent::OnMouseMessage(UINT message, WPARAM wParam, LPARAM 
 }
 //! [SendMouseInput]
 
-bool CHtmlFormViewComponent::OnPointerMessage(UINT message, WPARAM wParam, LPARAM lParam)
+bool CHtmlViewComponent::OnPointerMessage(UINT message, WPARAM wParam, LPARAM lParam)
 {
     bool handled = false;
 #ifdef USE_WEBVIEW2_WIN10
@@ -302,7 +302,7 @@ bool CHtmlFormViewComponent::OnPointerMessage(UINT message, WPARAM wParam, LPARA
     return handled;
 }
 
-void CHtmlFormViewComponent::TrackMouseEvents(DWORD mouseTrackingFlags)
+void CHtmlViewComponent::TrackMouseEvents(DWORD mouseTrackingFlags)
 {
     TRACKMOUSEEVENT tme;
     tme.cbSize = sizeof(tme);
@@ -312,7 +312,7 @@ void CHtmlFormViewComponent::TrackMouseEvents(DWORD mouseTrackingFlags)
     ::TrackMouseEvent(&tme);
 }
 
-void CHtmlFormViewComponent::BuildDCompTreeUsingVisual()
+void CHtmlViewComponent::BuildDCompTreeUsingVisual()
 {
 
     if (m_dcompWebViewVisual == nullptr)
@@ -327,7 +327,7 @@ void CHtmlFormViewComponent::BuildDCompTreeUsingVisual()
 }
 //! [BuildDCompTree]
 
-void CHtmlFormViewComponent::DestroyDCompVisualTree()
+void CHtmlViewComponent::DestroyDCompVisualTree()
 {
     if (m_dcompWebViewVisual)
     {
@@ -386,7 +386,7 @@ void ViewComponent::DestroyWinCompVisualTree()
 }
 #endif
 
-CHtmlFormViewComponent::~CHtmlFormViewComponent()
+CHtmlViewComponent::~CHtmlViewComponent()
 {
     m_controller->remove_ZoomFactorChanged(m_zoomFactorChangedToken);
 }

@@ -34,9 +34,6 @@ CHtmlFormViewComponent::CHtmlFormViewComponent(
             [this](ICoreWebView2Controller* sender, IUnknown* args) -> HRESULT {
                 double zoomFactor;
                 sender->get_ZoomFactor(&zoomFactor);
-                //std::wstring message = L"WebView2APISample (Zoom: " +
-                //    std::to_wstring(int(zoomFactor * 100)) + L"%)";
-                ////SetWindowText(m_appWindow->GetMainWindow(), message.c_str());
                 return S_OK;
             })
         .Get(),

@@ -17,9 +17,11 @@ class CHTMLFormView : public CFormView
 public:
     CHTMLFormView(LPCTSTR lpszTemplateName);
     CHTMLFormView(UINT nIDTemplate);
+	void InitVariables();
 protected:
 	template <class ComponentType, class... Args> void NewComponent(Args&&... args);
 	template <class ComponentType> ComponentType* GetComponent();
+	std::string m_URLstart;
 public:
 
 
@@ -38,14 +40,9 @@ public:
 	}
 
 
-	void Navigate2(LPITEMIDLIST pIDL, DWORD dwFlags = 0,
-		LPCTSTR lpszTargetFrameName = NULL);
 	void Navigate2(LPCTSTR lpszURL, DWORD dwFlags = 0,
 		LPCTSTR lpszTargetFrameName = NULL, LPCTSTR lpszHeaders = NULL,
 		LPVOID lpvPostData = NULL, DWORD dwPostDataLen = 0);
-	void Navigate2(LPCTSTR lpszURL, DWORD dwFlags,
-		CByteArray& baPostedData,
-		LPCTSTR lpszTargetFrameName = NULL, LPCTSTR lpszHeader = NULL);
 
 	virtual void OnInitialUpdate();
 	void InitializeWebView();

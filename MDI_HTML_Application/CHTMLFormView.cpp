@@ -8,31 +8,34 @@
 #include <ShObjIdl_core.h>
 #include <Shellapi.h>
 #include <ShlObj_core.h>
+#include <string>
 
 
 using Microsoft::WRL::Callback;
 static constexpr UINT s_runAsyncWindowMessage = WM_APP;
 
 CHTMLFormView::CHTMLFormView(LPCTSTR lpszTemplateName) :CFormView(lpszTemplateName) {
-
+    InitVariables();
 };
 CHTMLFormView::CHTMLFormView(UINT nIDTemplate) :CFormView(nIDTemplate) {
+    InitVariables();
+}
+void CHTMLFormView::InitVariables()
+{
+    m_URLstart = "";
+    m_webView = nullptr;
+}
+;
 
-};
-
-void CHTMLFormView::Navigate2(LPITEMIDLIST pIDL, DWORD dwFlags,
-    LPCTSTR lpszTargetFrameName) {
-
-};
 void CHTMLFormView::Navigate2(LPCTSTR lpszURL, DWORD dwFlags,
     LPCTSTR lpszTargetFrameName, LPCTSTR lpszHeaders,
     LPVOID lpvPostData, DWORD dwPostDataLen) {
-
-};
-void CHTMLFormView::Navigate2(LPCTSTR lpszURL, DWORD dwFlags,
-    CByteArray& baPostedData,
-    LPCTSTR lpszTargetFrameName, LPCTSTR lpszHeader) {
-
+    if (m_webView == nullptr) {
+        m_URLstart = *lpszURL;
+    }
+    else {
+        m_webView->Navigate(lpszURL);
+    }
 };
 
 
@@ -40,8 +43,7 @@ void CHTMLFormView::OnInitialUpdate()
 {
 	CFormView::OnInitialUpdate();
 
-    InitializeWebView();
-	// TODO: Add your specialized code here and/or call the base class
+    InitializeWebView(); 
 }
 
 void CHTMLFormView::CloseWebView(bool cleanupUserDataFolder)
@@ -98,11 +100,11 @@ HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, I
         GetModuleFileName(NULL, path, FILENAME_MAX);
         // Remove the file name
         CString s = path;
-        CString szResult = L"";
+        CString szResult = L"https://www.bing.com/";
 
 
 
-        HRESULT hresult = m_webView->Navigate(szResult + "https://www.bing.com/");
+        HRESULT hresult = m_webView->Navigate(szResult);
 
         if (hresult == S_OK)
         {
