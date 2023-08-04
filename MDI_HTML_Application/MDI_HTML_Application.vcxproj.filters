@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\TitleBar">
+      <UniqueIdentifier>{2e4e6810-cf04-456d-a6b1-c6e1ec8e8f50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TitleBar">
+      <UniqueIdentifier>{880bf14e-70c0-40f7-9b17-e2f22da79c1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MDI_HTML_Application.h">
@@ -66,6 +72,24 @@
     <ClInclude Include="CHtmlFormViewComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CustomToolTipPlain.h">
+      <Filter>Header Files\TitleBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CDesignUtils.h">
+      <Filter>Header Files\TitleBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CDesignView.h">
+      <Filter>Header Files\TitleBar</Filter>
+    </ClInclude>
+    <ClInclude Include="TipDataPlain.h">
+      <Filter>Header Files\TitleBar</Filter>
+    </ClInclude>
+    <ClInclude Include="TipData.h">
+      <Filter>Header Files\TitleBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomToolTip.h">
+      <Filter>Header Files\TitleBar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MDI_HTML_Application.cpp">
@@ -106,6 +130,18 @@
     </ClCompile>
     <ClCompile Include="CHtmFormlViewComponent.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomToolTipPlain.cpp">
+      <Filter>Source Files\TitleBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomToolTip.cpp">
+      <Filter>Source Files\TitleBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CDesignUtils.cpp">
+      <Filter>Source Files\TitleBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CDesignView.cpp">
+      <Filter>Source Files\TitleBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +223,27 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\Toolbar256.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\close_image.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\close_image_on.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\full_screen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\full_screen_on.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\min_image.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\min_image_on.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\left_title_menu.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

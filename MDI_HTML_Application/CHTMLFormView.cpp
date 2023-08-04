@@ -9,6 +9,18 @@
 #include <Shellapi.h>
 #include <ShlObj_core.h>
 #include <string>
+#include "CDesignView.h"
+
+
+
+#ifdef _DEBUG
+#undef DEBUG_NEW
+#define DEBUG_NEW new(__FILE__, __LINE__)
+#define _CRTDBG_MAP_ALLOC
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char BASED_CODE THIS_FILE[] = __FILE__;
+#endif
 
 
 using Microsoft::WRL::Callback;
@@ -160,6 +172,7 @@ void CHTMLFormView::InitializeWebView()
     }
 }BEGIN_MESSAGE_MAP(CHTMLFormView, CFormView)
 ON_WM_SIZE()
+ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 
@@ -181,4 +194,14 @@ void CHTMLFormView::ResizeEverything()
     {
         view->SetBounds(availableBounds);
     }
+}
+
+int CHTMLFormView::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+    if (CFormView::OnCreate(lpCreateStruct) == -1)
+        return -1;
+
+    CDesignView::InsertSuperCView(m_hWnd, this, CDesignView::VIEWID);
+
+    return 0;
 }

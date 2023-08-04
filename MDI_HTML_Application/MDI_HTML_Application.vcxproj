@@ -77,12 +77,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <SourcePath>$(VC_SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <SourcePath>$(VC_SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -188,11 +194,15 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDesignUtils.h" />
+    <ClInclude Include="CDesignView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="CHtmlComponentBase.h" />
     <ClInclude Include="CHTMLFormView.h" />
     <ClInclude Include="CHtmlFormViewComponent.h" />
     <ClInclude Include="ClassView.h" />
+    <ClInclude Include="CustomToolTip.h" />
+    <ClInclude Include="CustomToolTipPlain.h" />
     <ClInclude Include="FileView.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
@@ -204,13 +214,19 @@
     <ClInclude Include="PropertiesWnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TipData.h" />
+    <ClInclude Include="TipDataPlain.h" />
     <ClInclude Include="ViewTree.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDesignUtils.cpp" />
+    <ClCompile Include="CDesignView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="CHTMLFormView.cpp" />
     <ClCompile Include="CHtmFormlViewComponent.cpp" />
     <ClCompile Include="ClassView.cpp" />
+    <ClCompile Include="CustomToolTip.cpp" />
+    <ClCompile Include="CustomToolTipPlain.cpp" />
     <ClCompile Include="FileView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MDI_HTML_Application.cpp" />
@@ -234,16 +250,23 @@
     <Image Include="res\classview_hc.bmp" />
     <Image Include="res\class_view.ico" />
     <Image Include="res\class_view_hc.ico" />
+    <Image Include="res\close_image.png" />
+    <Image Include="res\close_image_on.png" />
     <Image Include="res\explorer.bmp" />
     <Image Include="res\explorer_hc.bmp" />
     <Image Include="res\fileview.bmp" />
     <Image Include="res\fileview_hc.bmp" />
     <Image Include="res\file_view.ico" />
     <Image Include="res\file_view_hc.ico" />
+    <Image Include="res\full_screen.png" />
+    <Image Include="res\full_screen_on.png" />
+    <Image Include="res\left_title_menu.png" />
     <Image Include="res\MDI_HTML_Application.ico" />
     <Image Include="res\MDI_HTML_ApplicationDoc.ico" />
     <Image Include="res\menuimages.bmp" />
     <Image Include="res\menuimages_hc.bmp" />
+    <Image Include="res\min_image.png" />
+    <Image Include="res\min_image_on.png" />
     <Image Include="res\output_wnd.ico" />
     <Image Include="res\output_wnd_hc.ico" />
     <Image Include="res\properties.bmp" />
