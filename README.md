@@ -39,6 +39,8 @@ Developers and end-users must have the [WebView2 runtime][ms-webview2-rt] instal
 
 ## MDI Desktop Application
 
+MDI Desktop application with custom title bar:
+
 ![Custom MDI WEB Browser ](https://github.com/Vladimir-Novick/WebBrowser/blob/main/img/mdi.png?raw=true)
 
 ## License
