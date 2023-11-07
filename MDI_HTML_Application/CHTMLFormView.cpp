@@ -111,9 +111,17 @@ HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, I
         TCHAR path[FILENAME_MAX];
         GetModuleFileName(NULL, path, FILENAME_MAX);
         // Remove the file name
-        CString s = path;
-        CString szResult = L"https://www.bing.com/";
 
+        auto pDoc = GetDocument();
+
+        CString szResult = pDoc->GetPathName();
+
+        CString s = path;
+
+
+        if (szResult.GetLength() == 0) {
+            szResult = L"https://www.bing.com/";
+        }
 
 
         HRESULT hresult = m_webView->Navigate(szResult);
