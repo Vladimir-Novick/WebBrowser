@@ -139,7 +139,7 @@ void CMDIHTMLApplicationView::OnInitialUpdate()
 
 	try
 	{
-		Navigate2(L"https://www.bing.com/", 0, NULL);
+	//	Navigate2(L"https://www.bing.com/", 0, NULL);
 	}
 	catch (...)
 	{
