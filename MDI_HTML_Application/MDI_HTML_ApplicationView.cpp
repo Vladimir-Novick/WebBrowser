@@ -118,12 +118,15 @@ void CMDIHTMLApplicationView::Dump(CDumpContext& dc) const
 	CHTMLFormView::Dump(dc);
 }
 
+#endif //_DEBUG
+
+
+
 CMDIHTMLApplicationDoc* CMDIHTMLApplicationView::GetDocument() const // non-debug version is inline
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CMDIHTMLApplicationDoc)));
 	return (CMDIHTMLApplicationDoc*)m_pDocument;
 }
-#endif //_DEBUG
 
 
 // CMDIHTMLApplicationView message handlers
