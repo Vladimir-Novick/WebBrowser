@@ -46,7 +46,7 @@ void CHTMLFormView::Navigate2(LPCTSTR lpszURL, DWORD dwFlags,
         m_URLstart = *lpszURL;
     }
     else {
-        m_webView->Navigate(lpszURL);
+        m_webView->Navigate(CT2W(lpszURL));
     }
 };
 
@@ -78,7 +78,7 @@ HRESULT CHTMLFormView::WebMessageReceived(ICoreWebView2* sender, ICoreWebView2We
 {
     LPWSTR pwStr;
     args->TryGetWebMessageAsString(&pwStr);
-    CString receivedMessage = pwStr;
+    CString receivedMessage = CW2T(pwStr);
     if (!receivedMessage.IsEmpty())
     {
        // AfxMessageBox("This message came from Javascript : " + receivedMessage);
@@ -124,7 +124,7 @@ HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, I
         }
 
 
-        HRESULT hresult = m_webView->Navigate(szResult);
+        HRESULT hresult = m_webView->Navigate(CT2W(szResult));
 
         if (hresult == S_OK)
         {
@@ -175,7 +175,7 @@ void CHTMLFormView::InitializeWebView()
         }
         else
         {
-            AfxMessageBox(L"Failed to create webview environment");
+            AfxMessageBox("Failed to create webview environment");
         }
     }
 }BEGIN_MESSAGE_MAP(CHTMLFormView, CFormView)

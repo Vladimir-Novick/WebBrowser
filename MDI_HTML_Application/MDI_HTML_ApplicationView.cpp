@@ -70,9 +70,7 @@ void CMDIHTMLApplicationView::OnDraw(CDC* /*pDC*/)
 
 void CMDIHTMLApplicationView::OnFilePrintPreview()
 {
-#ifndef SHARED_HANDLERS
-	AFXPrintPreview(this);
-#endif
+	m_webView->ExecuteScript(L"window.print();", nullptr);
 }
 
 BOOL CMDIHTMLApplicationView::OnPreparePrinting(CPrintInfo* pInfo)
@@ -118,15 +116,17 @@ void CMDIHTMLApplicationView::Dump(CDumpContext& dc) const
 	CHTMLFormView::Dump(dc);
 }
 
-#endif //_DEBUG
-
-
 
 CMDIHTMLApplicationDoc* CMDIHTMLApplicationView::GetDocument() const // non-debug version is inline
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CMDIHTMLApplicationDoc)));
 	return (CMDIHTMLApplicationDoc*)m_pDocument;
 }
+
+
+#endif //_DEBUG
+
+
 
 
 // CMDIHTMLApplicationView message handlers
