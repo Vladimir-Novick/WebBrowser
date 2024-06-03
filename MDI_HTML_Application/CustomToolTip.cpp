@@ -55,7 +55,7 @@ CustomToolTip::CustomToolTip(HWND parentHwnd, bool animateDrawing)
 	{
 	// TOPMOST, to keep the tip window in front.
 	// TOOLWINDOW just to suppress display in the task bar.
-	CreateEx(WS_EX_TOPMOST | WS_EX_TOOLWINDOW, AfxRegisterWndClass(NULL,0,0,0), L"",
+	CreateEx(WS_EX_TOPMOST | WS_EX_TOOLWINDOW, AfxRegisterWndClass(NULL,0,0,0), "",
 				WS_POPUP | WS_BORDER, 0, 0, 1, 1, NULL, NULL);
 	}
 

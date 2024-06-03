@@ -121,12 +121,12 @@ BOOL CDesignView::LoadBitmapFromPNG(HINSTANCE hModuleInstance, string  lpName, C
 {
 	bool bRet = false;
 
-	wstring temp = wstring(lpName.begin(), lpName.end());
+	string temp = string(lpName.begin(), lpName.end());
 
 	// Applying c_str() method on temp
-	LPCWSTR wideString = temp.c_str();
+	LPCSTR wideString = temp.c_str();
 
-	HRSRC hResourceHandle = ::FindResource(hModuleInstance, wideString, L"PNG");
+	HRSRC hResourceHandle = ::FindResource(hModuleInstance, wideString, "PNG");
 	if (0 == hResourceHandle)
 	{
 		return bRet;
