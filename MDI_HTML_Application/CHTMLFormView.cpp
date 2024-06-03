@@ -88,7 +88,6 @@ HRESULT CHTMLFormView::WebMessageReceived(ICoreWebView2* sender, ICoreWebView2We
 
 
 
-
 HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, ICoreWebView2Controller* controller)
 {
     if (result == S_OK)
@@ -107,6 +106,21 @@ HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, I
 
         EventRegistrationToken token;
         m_webView->add_WebMessageReceived(Callback<ICoreWebView2WebMessageReceivedEventHandler>(this, &CHTMLFormView::WebMessageReceived).Get(), &token);
+
+        m_webView->add_NavigationStarting(
+            Callback<ICoreWebView2NavigationStartingEventHandler>(
+                [this](ICoreWebView2* sender, ICoreWebView2NavigationStartingEventArgs* args)
+                -> HRESULT
+                {
+                    wil::unique_cotaskmem_string uri;
+                    args->get_Uri(&uri);
+                    // ! [NavigationKind]
+                    return S_OK;
+                })
+            .Get(),
+                    &token);
+
+        //--------------------
 
         TCHAR path[FILENAME_MAX];
         GetModuleFileName(NULL, path, FILENAME_MAX);
