@@ -92,11 +92,18 @@ HRESULT CHTMLFormView::WebNavigationStarting(ICoreWebView2* sender, ICoreWebView
 {
     wil::unique_cotaskmem_string uri;
     args->get_Uri(&uri);
-    CString str = uri.get();
+    CStringW str16 = uri.get();
+    BOOL bCancel = FALSE;
+    CW2A(str16, CP_UTF8);
     // ! [NavigationKind]
+    OnBeforeNavigate2(CW2A(str16, CP_UTF8), &bCancel);
+    args->put_Cancel(bCancel);
     return S_OK;
 }
 
+void  CHTMLFormView::OnBeforeNavigate2(LPCTSTR lpszURL, BOOL* pbCancel) {
+
+}
 
 HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, ICoreWebView2Controller* controller)
 {
