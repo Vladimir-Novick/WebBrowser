@@ -57,6 +57,7 @@ public:
 	void CloseWebView(bool cleanupUserDataFolder = false);
 	HRESULT WebMessageReceived(ICoreWebView2* sender, ICoreWebView2WebMessageReceivedEventArgs* args);
 	HRESULT OnCreateEnvironmentCompleted(HRESULT result, ICoreWebView2Environment* environment);
+	HRESULT WebNavigationStarting(ICoreWebView2* sender, ICoreWebView2NavigationStartingEventArgs* args);
 	HRESULT OnCreateCoreWebView2ControllerCompleted(HRESULT result, ICoreWebView2Controller* controller);
 	void ResizeEverything();
 

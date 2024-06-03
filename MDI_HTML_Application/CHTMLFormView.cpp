@@ -88,8 +88,19 @@ HRESULT CHTMLFormView::WebMessageReceived(ICoreWebView2* sender, ICoreWebView2We
 
 
 
+HRESULT CHTMLFormView::WebNavigationStarting(ICoreWebView2* sender, ICoreWebView2NavigationStartingEventArgs* args)
+{
+    wil::unique_cotaskmem_string uri;
+    args->get_Uri(&uri);
+    CString str = uri.get();
+    // ! [NavigationKind]
+    return S_OK;
+}
+
+
 HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, ICoreWebView2Controller* controller)
 {
+    EventRegistrationToken token;
     if (result == S_OK)
     {
         m_controller = controller;
@@ -104,21 +115,10 @@ HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, I
 #endif
             m_creationModeId == IDM_CREATION_MODE_TARGET_DCOMP);
 
-        EventRegistrationToken token;
-        m_webView->add_WebMessageReceived(Callback<ICoreWebView2WebMessageReceivedEventHandler>(this, &CHTMLFormView::WebMessageReceived).Get(), &token);
 
-        m_webView->add_NavigationStarting(
-            Callback<ICoreWebView2NavigationStartingEventHandler>(
-                [this](ICoreWebView2* sender, ICoreWebView2NavigationStartingEventArgs* args)
-                -> HRESULT
-                {
-                    wil::unique_cotaskmem_string uri;
-                    args->get_Uri(&uri);
-                    // ! [NavigationKind]
-                    return S_OK;
-                })
-            .Get(),
-                    &token);
+        m_webView->add_WebMessageReceived(Callback<ICoreWebView2WebMessageReceivedEventHandler>(this, 
+            &CHTMLFormView::WebMessageReceived).Get(), &token);
+
 
         //--------------------
 
@@ -151,6 +151,13 @@ HRESULT CHTMLFormView::OnCreateCoreWebView2ControllerCompleted(HRESULT result, I
     {
         TRACE("Failed to create webview");
     }
+
+
+    m_webView->add_NavigationStarting(
+        Callback<ICoreWebView2NavigationStartingEventHandler>(this,
+            &CHTMLFormView::WebNavigationStarting).Get(),
+        &token);
+
     return S_OK;
 }
 
